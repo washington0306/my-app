@@ -1,0 +1,182 @@
+#main {
+  position: relative;
+  height: 100vh;
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+#main .credits {
+  font-size: clamp(14px, 2vh, 16px);
+  position: absolute;
+  font-weight: 500;
+  grid-area: credits;
+  bottom: 15px;
+}
+
+#main .credits a {
+  color: #000000;
+}
+
+#main .content-main {
+  top: 20px;
+  position: absolute;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 65px 1fr 15px;
+  grid-template-areas:
+    'logo brazil'
+    'mapa stats'
+    'credits stats';
+}
+
+.setBrazil {
+  grid-area: brazil;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.setBrazil a {
+  padding: 10px 20px;
+  background-color: #0e7985;
+  cursor: pointer;
+  color: #FFF;
+  border-radius: 10px;
+  text-decoration: none;
+
+  transition: background-color 0.2s;
+}
+
+div.stats-wrapper {
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  grid-area: stats;
+}
+
+div#map-box {
+  position: relative;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-area: mapa;
+}
+
+div#map-box a:hover {
+  background-color: #616161;
+}
+
+img.logo {
+  grid-area: logo;
+  background-color: #FFF;
+  padding: 15px;
+  border-radius: 15px;
+  max-height: 55px;
+}
+
+span.select {
+  font-size: 22px;
+  display: none;
+  grid-area: select;
+  color: #0f3e5f;
+}
+
+div#map-box svg {
+  max-width: 90%;
+  height: auto;
+  max-height: 90%;
+}
+
+#svg-map path {
+  fill: #0e7985 !important;
+  transition: fill 0.2s;
+}
+
+#svg-map a {
+  text-decoration: none;
+}
+
+#svg-map a:hover {
+  cursor: pointer;
+  text-decoration: none
+}
+
+#svg-map a:hover path {
+  fill: #19d3da !important
+}
+
+
+@media(max-width: 820px), (orientation: landscape) and
+(max-width: 820px), (orientation: portrait) {
+  #main {
+    height: 100%;
+    width:95vw;
+    display: flex;
+    justify-content:center;
+  }
+
+  #main .credits {
+    font-size: 18px;
+    justify-self: center;
+    align-self: center;
+    height: 30px;
+    bottom: -5px;
+  }
+
+  #main .content-main {
+    top: 0;
+    margin: 0;
+    width: 98vw;
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px 1fr 50px;
+    grid-template-areas:
+      'logo'
+      'select'
+      'mapa'
+      'brazil'
+      'stats'
+      'credits';
+    
+    grid-gap: 15px
+  }
+
+  img.logo {
+    max-width: 200px;
+    justify-self: center;
+    grid-area: logo;
+  }
+  
+  span.select {
+    display: flex;
+    justify-self: center;
+  }
+
+  div#map-box { 
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  div#map-box a {
+    top: 8px;
+    right: 20px;
+  }
+
+  div#map-box svg {
+    width: 100%;
+    max-height: 100vh;
+  }
+
+  div#stats-box {
+    width: 95%;
+    margin-top: 20px;
+  }
+  
+}
